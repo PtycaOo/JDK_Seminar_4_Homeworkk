@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         Directions directions = new Directions();
@@ -8,9 +10,12 @@ public class Main {
         directions.addEmployee("Петр","Петров","89993322543",2);
         directions.addEmployee("Гоша","Друзь","89215557891",5);
 
-        System.out.println(directions.getAllEmployee());
+
+        System.out.println(directions);
         System.out.println(directions.searchEmpToEx(8));
+        System.out.println("");
         System.out.println(directions.searchNumberByName("Никита"));
+        System.out.println("");
         System.out.println(directions.searchEmpToID(4));
 
 

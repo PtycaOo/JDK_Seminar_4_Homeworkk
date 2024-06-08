@@ -19,32 +19,27 @@ public class Directions {
         list.add(employee);
     }
 
-    public String getAllEmployee(){
-        StringBuilder sb = new StringBuilder();
-        for (Employee employee: list) {
-            sb.append(employee.toString());
-        }
-        return sb.toString();
-    }
-
-    public String searchEmpToEx(int ex){
-        StringBuilder sb = new StringBuilder();
+    public List<Employee> searchEmpToEx(int ex){
+        List<Employee> newList = new ArrayList<>();
         for (Employee employee: list){
             if(employee.ex() >= ex){
-                sb.append(employee);
+                newList.add(employee);
             }
         }
-        return sb.toString();
+        System.out.printf("Сотрудники со стажем более %d: \n",ex);
+        return newList;
     }
 
-    public String searchNumberByName(String name){
-        StringBuilder sb = new StringBuilder();
+    public List<String> searchNumberByName(String name){
+        List<String> newList = new ArrayList<>();
         for (Employee employee: list){
             if(employee.name().equals(name)){
-                sb.append(employee);
+                newList.add(employee.secondName());
+                newList.add(employee.phoneNumber());
             }
         }
-        return sb.toString();
+        System.out.printf("Номера телефона :");
+        return newList;
     }
 
     public Employee searchEmpToID(int id){
@@ -55,5 +50,14 @@ public class Directions {
             }
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Employee employee:  list){
+            sb.append(employee.toString());
+        }
+        return sb.toString();
     }
 }
